@@ -1,0 +1,50 @@
+﻿@model ProdCientifica.Models.MaestriaUsuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Maestría</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Maestria.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maestria.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maestria.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maestria.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAdquiriolaMaestria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAdquiriolaMaestria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LugarAdquiriolaMaestria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LugarAdquiriolaMaestria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Maestria.MaestriaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

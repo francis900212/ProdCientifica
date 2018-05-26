@@ -18,6 +18,9 @@ namespace ProdCientifica.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        private ProdCientificaContext db = new ProdCientificaContext();
+        private ApplicationDbContext db1 = new ApplicationDbContext();
+
         public AccountController()
         {
         }
@@ -139,7 +142,10 @@ namespace ProdCientifica.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            
+            ViewBag.DepartamentoID = new SelectList(db1.Departamentos.OrderBy(x => x.Nombre).ToList(), "DepartamentoID", "Nombre");
             return View();
+
         }
 
         //
@@ -151,7 +157,15 @@ namespace ProdCientifica.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,DepartamentoId = model.DepartamentoId,
+                          CategoriaDocente = model.CategoriaDocente, CategoriaInvestigativa = model.CategoriaInvestigativa,
+                          AnnoCategoriaInvestigativa = model.AnnoCategoriaInvestigativa, AnnoInicioDocente = model.AnnoInicioDocente,
+                          Ci = model.Ci, Especialista1erGrado = model.Especialista1erGrado, Especialista2doGrado = model.Especialista2doGrado,
+                          GradoCientifico = model.GradoCientifico, HonorisCausa = (bool)model.HonorisCausa, Nombre = model.Nombre,
+                          Path = model.Path, ProfesorConsultante = (bool)model.ProfesorConsultante, ProfesorMerito = model.ProfesorMerito,
+                          Sexo = model.Sexo, TituloGraduado = model.TituloGraduado, UltimaEvaluacionDocente = model.UltimaEvaluacionDocente,
+                          PerteneceAlClaustro = model.PerteneceAlClaustro};
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -169,6 +183,7 @@ namespace ProdCientifica.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.DepartamentoID = new SelectList(db1.Departamentos.OrderBy(x => x.Nombre).ToList(), "DepartamentoID", "Nombre",model.DepartamentoId);
             return View(model);
         }
 

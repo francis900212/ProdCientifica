@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProdCientifica.Models.MaestriaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Maestria.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maestria.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaAdquiriolaMaestria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LugarAdquiriolaMaestria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maestria.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maestria.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaAdquiriolaMaestria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LugarAdquiriolaMaestria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Maestria.MaestriaId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Maestria.MaestriaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Maestria.MaestriaId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -53,6 +53,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -190,14 +192,58 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AsignaturaController.cs" />
+    <Compile Include="Controllers\CentroTrabajoController.cs" />
+    <Compile Include="Controllers\CursoImpartidosController.cs" />
+    <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaestriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations.Identity\201804231400426_act1.cs" />
+    <Compile Include="Migrations.Identity\201804231400426_act1.Designer.cs">
+      <DependentUpon>201804231400426_act1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201804281852339_act2.cs" />
+    <Compile Include="Migrations.Identity\201804281852339_act2.Designer.cs">
+      <DependentUpon>201804281852339_act2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\Configuration.cs" />
+    <Compile Include="Migrations.ProdCientificaContext\Configuration.cs" />
+    <Compile Include="ModelEnums\SuperacionNivel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Asignatura.cs" />
+    <Compile Include="Models\Asignaturasimparte.cs" />
+    <Compile Include="ModelEnums\CategoriaDocente.cs" />
+    <Compile Include="ModelEnums\CategoriaInvestigativa.cs" />
+    <Compile Include="Models\CentroTrabajo.cs" />
+    <Compile Include="Models\Condecoracion.cs" />
+    <Compile Include="Models\CursoImpartido.cs" />
+    <Compile Include="Models\Cursorecibido.cs" />
+    <Compile Include="Models\Departamento.cs" />
+    <Compile Include="ModelEnums\EvaluacionDocente.cs" />
+    <Compile Include="Models\Evento.cs" />
+    <Compile Include="ModelEnums\GradoCientifico.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Maestria.cs" />
+    <Compile Include="Models\MaestriaUsuario.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ParticipacionEvento.cs" />
+    <Compile Include="Models\Premio.cs" />
+    <Compile Include="Models\ProdCientificaContext.cs" />
+    <Compile Include="Models\Proyecto.cs" />
+    <Compile Include="Models\ProyectoUsuario.cs" />
+    <Compile Include="Models\Publicacion.cs" />
+    <Compile Include="Models\RegistroPropiedad.cs" />
+    <Compile Include="Models\Resultado.cs" />
+    <Compile Include="ModelEnums\Sexo.cs" />
+    <Compile Include="ModelEnums\SuperacionTipo.cs" />
+    <Compile Include="ModelEnums\TituloGraduado.cs" />
+    <Compile Include="ModelView\AsignaturaImparteView.cs" />
+    <Compile Include="ModelView\MaestriaUsuarioView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -258,6 +304,37 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\CentroTrabajo\Create.cshtml" />
+    <Content Include="Views\CentroTrabajo\Delete.cshtml" />
+    <Content Include="Views\CentroTrabajo\Details.cshtml" />
+    <Content Include="Views\CentroTrabajo\Edit.cshtml" />
+    <Content Include="Views\CentroTrabajo\Index.cshtml" />
+    <Content Include="Views\Departamento\Create.cshtml" />
+    <Content Include="Views\Departamento\Delete.cshtml" />
+    <Content Include="Views\Departamento\Details.cshtml" />
+    <Content Include="Views\Departamento\Edit.cshtml" />
+    <Content Include="Views\Departamento\Index.cshtml" />
+    <Content Include="Views\Shared\_IfAuthenticated.cshtml" />
+    <Content Include="Views\Maestrias\Create.cshtml" />
+    <Content Include="Views\Maestrias\Delete.cshtml" />
+    <Content Include="Views\Maestrias\Details.cshtml" />
+    <Content Include="Views\Maestrias\Edit.cshtml" />
+    <Content Include="Views\Maestrias\Index.cshtml" />
+    <Content Include="Views\Asignatura\Create.cshtml" />
+    <Content Include="Views\Asignatura\Delete.cshtml" />
+    <Content Include="Views\Asignatura\Details.cshtml" />
+    <Content Include="Views\Asignatura\Edit.cshtml" />
+    <Content Include="Views\Asignatura\Index.cshtml" />
+    <Content Include="Views\Asignatura\CreateAsignaturaImparte.cshtml" />
+    <Content Include="Views\Asignatura\AsignaturasImparte.cshtml" />
+    <Content Include="Views\Asignatura\DetailsAsignaturaImparte.cshtml" />
+    <Content Include="Views\CursoImpartidos\Create.cshtml" />
+    <Content Include="Views\CursoImpartidos\Delete.cshtml" />
+    <Content Include="Views\CursoImpartidos\Details.cshtml" />
+    <Content Include="Views\CursoImpartidos\Edit.cshtml" />
+    <Content Include="Views\CursoImpartidos\Index.cshtml" />
+    <Content Include="Views\Asignatura\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +351,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations.Identity\201804231400426_act1.resx">
+      <DependentUpon>201804231400426_act1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201804281852339_act2.resx">
+      <DependentUpon>201804281852339_act2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

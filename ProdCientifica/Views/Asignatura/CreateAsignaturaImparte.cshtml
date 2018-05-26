@@ -1,0 +1,55 @@
+﻿@model ProdCientifica.ModelView.AsignaturaImparteView
+@{
+    ViewBag.Title = "Asignar Asignatura";
+    ViewBag.flag = 0;
+}
+
+<h2>Asignar Asignaturas</h2>
+
+@using (Html.BeginForm())
+{
+
+<div class="form-horizontal">
+    <h4>Asignatura</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @foreach (var item in Model.Asignaturas)
+    {
+        <div class="checkbox">
+            <label>
+                @foreach (var item1 in ViewBag.asignaturasImparte)
+                {
+                    if (item.AsignaturaId == item1.AsignaturaId)
+                    {
+                        <input type="checkbox" value="@item.AsignaturaId" name="asignaturas" checked disabled>
+                        @item.Nombre;
+                        ViewBag.flag = 1;
+                        break;
+                    }
+
+                }
+                @if (ViewBag.flag == 0)
+                {
+                    <input type="checkbox" value="@item.AsignaturaId" name="asignaturas">
+                    @item.Nombre;
+                }
+                else { ViewBag.flag = 0; }
+
+
+
+
+            </label>
+        </div>
+    }
+    <br/>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+    
+}
+

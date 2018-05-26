@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProdCientifica.Models.Asignaturasimparte>
+
+@{
+    ViewBag.Title = "AsignaturasImparte";
+}
+
+<h2>Asignaturas que Imparte</h2>
+<h3>User: @ViewBag.Usuario</h3>
+
+<p>
+    @Html.ActionLink("Create New", "CreateAsignaturaImparte")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Asignatura.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asignatura.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DetailsAsignaturaImparte", new { id=item.AsignaturasimparteId }) |
+            @Html.ActionLink("Delete", "DeleteAsignaturaImparte", new { id=item.AsignaturasimparteId }, new { onclick = "return confirm('Are you sure?');" })
+        </td>
+    </tr>
+}
+
+</table>
