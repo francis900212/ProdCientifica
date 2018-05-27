@@ -35,6 +35,7 @@ namespace ProdCientifica.Models
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
 
+
         public string UsuarioId { get; set; }
         public virtual ApplicationUser Usuario { get; set; }
     }
