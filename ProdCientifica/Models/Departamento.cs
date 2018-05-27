@@ -20,6 +20,7 @@ namespace ProdCientifica.Models
         public string Descripcion { get; set; }
 
         [Required]
+        [Display(Name ="Centro de Trabajo")]
         public int CentroTrabajoId { get; set; }
         public virtual CentroTrabajo CentroTrabajo { get; set; }
 
