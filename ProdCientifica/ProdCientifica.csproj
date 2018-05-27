@@ -203,13 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201804231400426_act1.cs" />
-    <Compile Include="Migrations.Identity\201804231400426_act1.Designer.cs">
-      <DependentUpon>201804231400426_act1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations.Identity\201804281852339_act2.cs" />
-    <Compile Include="Migrations.Identity\201804281852339_act2.Designer.cs">
-      <DependentUpon>201804281852339_act2.cs</DependentUpon>
+    <Compile Include="Migrations.Identity\201805262217272_act.cs" />
+    <Compile Include="Migrations.Identity\201805262217272_act.Designer.cs">
+      <DependentUpon>201805262217272_act.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations.Identity\Configuration.cs" />
     <Compile Include="Migrations.ProdCientificaContext\Configuration.cs" />
@@ -353,11 +349,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations.Identity\201804231400426_act1.resx">
-      <DependentUpon>201804231400426_act1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201804281852339_act2.resx">
-      <DependentUpon>201804281852339_act2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations.Identity\201805262217272_act.resx">
+      <DependentUpon>201805262217272_act.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

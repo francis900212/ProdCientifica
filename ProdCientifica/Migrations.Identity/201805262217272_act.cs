@@ -3,7 +3,7 @@ namespace ProdCientifica.Migrations.Identity
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class act1 : DbMigration
+    public partial class act : DbMigration
     {
         public override void Up()
         {
@@ -104,8 +104,8 @@ namespace ProdCientifica.Migrations.Identity
                     {
                         CursorecibidoId = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false, maxLength: 50),
-                        Tipo = c.String(nullable: false, maxLength: 50),
-                        Caracter = c.String(nullable: false, maxLength: 50),
+                        Tipo = c.Int(nullable: false),
+                        nivel = c.Int(nullable: false),
                         Descripcion = c.String(maxLength: 255),
                         Fecha = c.DateTime(nullable: false),
                         UsuarioId = c.String(maxLength: 128),
@@ -121,8 +121,9 @@ namespace ProdCientifica.Migrations.Identity
                         CursoimpartidoId = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false, maxLength: 50),
                         ProfesorPrincipal = c.Boolean(nullable: false),
-                        Tipo = c.String(nullable: false, maxLength: 50),
-                        Caracter = c.String(nullable: false, maxLength: 50),
+                        Tipo = c.Int(nullable: false),
+                        nivel = c.Int(nullable: false),
+                        Descripcion = c.String(maxLength: 255),
                         Fecha = c.DateTime(nullable: false),
                         UsuarioId = c.String(maxLength: 128),
                     })

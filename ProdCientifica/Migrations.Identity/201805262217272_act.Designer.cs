@@ -7,13 +7,13 @@ namespace ProdCientifica.Migrations.Identity
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class act1 : IMigrationMetadata
+    public sealed partial class act : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(act1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(act));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804231400426_act1"; }
+            get { return "201805262217272_act"; }
         }
         
         string IMigrationMetadata.Source
